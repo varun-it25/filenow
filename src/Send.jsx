@@ -143,13 +143,13 @@ const Send = () => {
           {share ? <Share url={url} /> : null}
           <div style={{display: `${(width<600) ?"flex" :"none"}`, justifyContent: `space-between`,  padding: `0.7rem 1.5rem`, boxShadow: `0px 0px 12px 0px rgba(0, 0, 0, 0.25)` }}>
             <button style={{width: `100%`, border: `none`, backgroundColor: `#F8F8F8`}}>
-              <Link to={`/send`} style={{display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `center`, textDecoration: `none`, color: `${(window.location.href === `http://localhost:5173/send`) ? "#538cad" :"#5E5E5E"}`}}>
+              <Link to={`/send`} style={{display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `center`, textDecoration: `none`, color: `${(window.location.href === `https://filenow-app.onrender.com/send`) ? "#538cad" :"#5E5E5E"}`}}>
                 <TbFolderShare fontSize={`2rem`} style={{marginLeft: `2px`}}/>
                 <p style={{fontSize: `0.7rem`, fontWeight: `bold`, marginTop: `2px`}}>Send</p>
               </Link>
             </button>
             <button style={{width: `100%`, border: `none`, backgroundColor: `#F8F8F8`}}>
-              <Link to={`/recieve`} style={{display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `center`, textDecoration: `none`, color: `${(window.location.href === `http://localhost:5173/recieve`) ? "#538cad" :"#5E5E5E"}`}}>
+              <Link to={`/recieve`} style={{display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `center`, textDecoration: `none`, color: `${(window.location.href === `https://filenow-app.onrender.com/recieve`) ? "#538cad" :"#5E5E5E"}`}}>
                 <LuImport fontSize={`2rem`}/>
                 <p style={{fontSize: `0.7rem`, fontWeight: `bold`, marginTop: `1px`}}>Recieve</p>
               </Link>
