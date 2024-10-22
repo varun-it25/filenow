@@ -83,6 +83,16 @@ const App = () => {
       color: "#fff",
       fontSize: "1.2rem",
     },
+    btn_primary_diabled: {
+      padding: "10px",
+      backgroundColor: "#5E5E5E",
+      border: "none",
+      fontWeight: "bold",
+      borderRadius: "6px",
+      cursor: "pointer",
+      color: "#fff",
+      fontSize: "1.2rem",
+    },
     btn_secondary: {
       width: "49%",
       border: "1px solid #000",
@@ -129,8 +139,8 @@ const App = () => {
                 <div style={{ marginTop: `1rem` }}></div>
                 {
                   (isClicked)
-                    ?<button style={style.btn_primary} type="submit">Login</button>
-                    :<button style={style.btn_disabled} disabled >Loading...</button>
+                    ?<button style={style.btn_primary_diabled} disabled >Loading...</button>
+                    :<button style={style.btn_primary} type="submit">Login</button>
                 }
               </>
             ) : (
@@ -143,8 +153,8 @@ const App = () => {
                 <div style={{ marginTop: `0.5rem` }}></div>
                 {
                   (isClicked)
-                    ?<button style={style.btn_primary} type="submit">Register</button>
-                    :<button style={style.btn_disabled} disabled >Loading...</button>
+                    ?<button style={style.btn_primary_diabled} disabled >Loading...</button>
+                    :<button style={style.btn_primary} type="submit">Register</button>
                 }
               </>
             )}
