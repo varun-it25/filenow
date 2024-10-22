@@ -33,7 +33,7 @@ const App = () => {
   // Redirect when token is valid
   useEffect(() => {
     if (isValid) {
-      window.location.assign(`http://localhost:5173/send`);
+      window.location.assign(`/send`);
     }
   }, [isValid]);
 
