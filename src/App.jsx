@@ -12,6 +12,7 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(null);
+  const [isClicked, setClick] = useState(false);
 
   // Use effect for token verification to run once on mount
   useEffect(() => {
@@ -40,6 +41,7 @@ const App = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const url = select.toLowerCase();
+    setClick(true);
 
     if (url === `login`) {
       try {
@@ -47,6 +49,7 @@ const App = () => {
         setCookie(`token`, res.data.token);
         setValid(true);
       } catch (e) {
+        setClick(false);
         setValid(false);
         setErr("Login failed. Please check your credentials.");
       }
@@ -56,6 +59,7 @@ const App = () => {
         setCookie(`token`, res.data);
         setValid(true);
       } catch (e) {
+        setClick(false);
         setValid(false);
         setErr("Registration failed. Please try again.");
       }
@@ -123,7 +127,11 @@ const App = () => {
                 <div style={{ marginTop: `1rem` }}></div>
                 <input style={style.input} placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} required />
                 <div style={{ marginTop: `1rem` }}></div>
-                <button style={style.btn_primary} type="submit">Login</button>
+                {
+                  (isClicked)
+                    ?<button style={style.btn_primary} type="submit">Login</button>
+                    :<button style={style.btn_disabled} disabled >Loading...</button>
+                }
               </>
             ) : (
               <>
@@ -133,7 +141,11 @@ const App = () => {
                 <div style={{ marginTop: `0.5rem` }}></div>
                 <input style={style.input} placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} required />
                 <div style={{ marginTop: `0.5rem` }}></div>
-                <button style={style.btn_primary} type="submit">Register</button>
+                {
+                  (isClicked)
+                    ?<button style={style.btn_primary} type="submit">Register</button>
+                    :<button style={style.btn_disabled} disabled >Loading...</button>
+                }
               </>
             )}
             <div style={{ width: "100%", display: "flex", justifyContent: "space-between", marginTop: "1.2rem" }}>
