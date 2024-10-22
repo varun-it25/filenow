@@ -9,7 +9,8 @@ const Left = ({active, name}) => {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);  
 
   function Logout(){
-    removeCookie("token")
+    removeCookie("token");
+    window.location.assign('/');
   }
 
   return (    
