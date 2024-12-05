@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 
 const Recieve = () => {
   const [url, setUrl] = useState('');
-  const [isValid, setValid] = useState(false);
   const [cookies] = useCookies(['token']);
   const [authenticated, setAuthenticated] = useState(false);
   const [name, setName] = useState("test");
@@ -47,15 +46,6 @@ const Recieve = () => {
     verifyToken();
   }, [cookies.token]);
 
-  // Check if the URL is valid
-  useEffect(() => {
-    if (url.includes(`https://filenow-production.up.railway.app/`)) {
-      setValid(true);
-    } else {
-      setValid(false);
-    }
-  }, [url]);
-
   function downloadFile() {
     const link = url.split('/').pop();
     window.open(`https://filenow-production.up.railway.app/download/${link}`, '_blank');
@@ -83,12 +73,7 @@ const Recieve = () => {
                   className="link"
                 />
               </div>
-              <div>
-                {isValid
-                  ? <button onClick={downloadFile}>Download</button>
-                  : <button id='dis-btn' disabled>Download</button>
-                }
-              </div>
+              <div><button onClick={downloadFile}>Download</button></div>
             </div>            
           </div>
           <div style={{display: `${(width<600) ?"flex" :"none"}`, justifyContent: `space-between`,  padding: `0.7rem 1.5rem`, boxShadow: `0px 0px 12px 0px rgba(0, 0, 0, 0.25)` }}>
