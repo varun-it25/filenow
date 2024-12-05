@@ -63,7 +63,7 @@ const Send = () => {
     formData.append(`file`, file);
 
     try {
-      const response = await axios.post("https://filenow.onrender.com/upload", formData, {
+      const response = await axios.post("https://filenow-production.up.railway.app/upload", formData, {
         onUploadProgress: (progressEvent) => {
           const percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
