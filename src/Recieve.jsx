@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom';
 const Recieve = () => {
   const [url, setUrl] = useState('');
   const [cookies] = useCookies(['token']);
-  const [authenticated, setAuthenticated] = useState(false);
   const [name, setName] = useState("test");
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -50,9 +49,8 @@ const Recieve = () => {
     const link = url.split('/').pop();
     window.open(`https://filenow-production.up.railway.app/download/${link}`, '_blank');
   }
-
-  if (authenticated) {
-    return (
+  
+  return (
       <div className='App'>
         <Left active={'recieve'} name={name}/>
         <div className='main'>
@@ -93,37 +91,6 @@ const Recieve = () => {
         </div>
       </div>
     );
-  }
-
-  // If not authenticated, show login prompt
-  return (
-    <div className="App">
-      <div className="main">
-        <nav>
-          <Link to="/" style={{ textDecoration: `none`, color: `#5E5E5E` }}>FileNow</Link>
-        </nav>
-        <div className="main">
-          <div style={{
-            width: `60%`,
-            height: `300px`,
-            border: `2px solid red`,
-            borderRadius: `12px`,
-            display: `flex`,
-            flexDirection: `column`,
-            justifyContent: `center`,
-            alignItems: `center`,
-            boxShadow: `0px 0px 32px 0px rgba(200, 0, 0, 0.25)`
-          }}>
-            <p style={{ fontSize: `1.5rem`, fontWeight: `bold` }}>You are unauthorized</p>
-            <p style={{ marginTop: `0.2rem` }}>You need to log in</p>
-            <Link to={`/`}>
-              <button style={{ padding: `0.2rem 1.8rem`, marginTop: `0.82rem`, cursor: `pointer` }}>Login</button>
-            </Link>
-          </div>
-        </div>          
-      </div>
-    </div>
-  );
 }
 
 export default Recieve;
