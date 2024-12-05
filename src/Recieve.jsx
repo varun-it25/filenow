@@ -49,7 +49,7 @@ const Recieve = () => {
 
   // Check if the URL is valid
   useEffect(() => {
-    if (url.includes(`https://filenow.onrender.com/download/`)) {
+    if (url.includes(`https://filenow-production.up.railway.app/`)) {
       setValid(true);
     } else {
       setValid(false);
@@ -57,7 +57,8 @@ const Recieve = () => {
   }, [url]);
 
   function downloadFile() {
-    window.open(url, '_blank');
+    const link = url.split('/').pop();
+    window.open(`https://filenow-production.up.railway.app/download/${link}`, '_blank');
   }
 
   if (authenticated) {
