@@ -93,7 +93,6 @@ const Send = () => {
     setFile(e.target.files[0]);
   }
 
-  if (isValid) {
     return (
       <div className="App">
         <Left active={"send"} name={name} />
@@ -158,22 +157,7 @@ const Send = () => {
         </form>
       </div>
     );
-  }
-
-  return (
-    <div className="App">
-      <div className="main">
-        <nav><Link to="/" style={{ textDecoration: `none`, color: `#5E5E5E` }}>FileNow</Link></nav>
-        <div className="main">
-          <div style={{width: `65%`, height: `300px`, border: `2px solid red`, borderRadius: `12px`, display: `flex`, flexDirection: `column`, justifyContent: `center`, alignItems: `center`, boxShadow: `0px 0px 32px 0px rgba(200, 0, 0, 0.25)`}}>
-            <p style={{fontSize: `1.5rem`, fontWeight: `bold`}}>You are unautherized</p>
-            <p style={{marginTop: `0.2rem`}}>You Need to Login</p>
-            <Link to={`/`}><button style={{ padding: `0.2rem 1.8rem`, marginTop: `0.82rem`, cursor: `pointer`}}>Login</button></Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+  } 
 };
 
 export default Send;
